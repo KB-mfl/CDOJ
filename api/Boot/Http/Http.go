@@ -20,7 +20,7 @@ func InitHttp() {
 	http.server = gin.Default()
 	Router = http.server
 	http.port = Config.GetStringWithDefault("http.port", "localhost")
-	http.addr = Config.GetStringWithDefault("http.server", "8000")
+	http.addr = Config.GetStringWithDefault("http.server", "8888")
 }
 
 func Run() {
