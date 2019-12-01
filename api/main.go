@@ -35,7 +35,6 @@ func _run()  {
 }
 
 func main()  {
-	fmt.Println("debug")
 	if len(os.Args) > 1 {
 		param := strings.Join(os.Args[1:], "")
 		switch param {
