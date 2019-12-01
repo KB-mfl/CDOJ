@@ -1,12 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { Spin } from "antd";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import Home from "./Home/Home";
+import Auth from "./Auth/Layout";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Spin size="large">
+    <div style={{ width: "100%", height: "100vh" }} />
+  </Spin>,
+  document.getElementById("root")
+);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.register();
+const appPages = ["user", "problem", "contest", "news", "rank"];
+
+const SwitchPage = () => {
+  const pathname = window.location.pathname.split("/");
+  if (pathname.includes("account")) {
+    return <Auth />;
+  } else if (appPages.some(page => pathname.includes(page))) {
+    return <App />;
+  } else {
+    return <Home />;
+  }
+};
+
+ReactDOM.render(SwitchPage(), document.getElementById("root"));
