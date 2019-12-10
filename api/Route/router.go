@@ -17,4 +17,11 @@ func AddRoute()  {
 			"version": runtime.Version(),
 		})
 	})
+	auth := Http.Router.Group("/auth")
+	{
+		auth.POST("/register", )
+		auth.POST("/login", )
+		auth.POST("/code")
+		auth.POST("/")
+	}
 }
